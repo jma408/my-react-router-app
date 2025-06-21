@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import NavBar from "../components/NavBar";
 
 export default function Layout() {
@@ -8,6 +8,7 @@ export default function Layout() {
       <main style={{ padding: "1rem" }}>
         <Outlet />
       </main>
+      <ScrollRestoration />
     </>
   );
 }
