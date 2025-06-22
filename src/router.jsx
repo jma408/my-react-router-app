@@ -17,7 +17,11 @@ const router = createBrowserRouter([
     element: <Layout />,
     errorElement: <RouteError />,
     children: [
-      { index: true, element: <Home />, loader: homeLoader },
+      {
+        index: true,
+        element: <Home />,
+        loader: homeLoader,
+      },
       { path: "about", element: <About /> },
       { path: "login", element: <Login /> },
       {
@@ -35,6 +39,13 @@ const router = createBrowserRouter([
         ],
       },
       { path: "user/:userId", element: <User /> },
+      {
+        path: "crash",
+        element: <div>This won't render</div>,
+        loader: () => {
+          throw new Error("Boom! Loader failed");
+        },
+      },
       { path: "*", element: <NotFound /> },
     ],
   },
